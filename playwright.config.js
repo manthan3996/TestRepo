@@ -7,7 +7,7 @@ import {
 import {
   config
 } from 'node:process';
-
+const {loadEnvironment} = require('./utilities/env');
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -19,6 +19,10 @@ import {
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
+
+loadEnvironment();
+
+const environment = require('./utilities/environment');
 export default defineConfig({
   testDir: './tests',
   timeout: 40000,
@@ -31,7 +35,7 @@ export default defineConfig({
   projects: [{
     name: 'chromium',
     use: {
-      baseURL: 'https://rahulshettyacademy.com',
+      baseURL: environment.BASE_URL,
       ...devices['Desktop Chrome'],
       headless: false
     }
