@@ -2,7 +2,12 @@
   "name": "playwrightautomation",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "cross-env ENV=dev npx playwright test ./tests/testpage.spec.js --reporter=html",
+    "test:headed": "cross-env ENV=qa npx playwright test --headed",
+    "test:debug": "cross-env ENV=qa npx playwright test --debug",
+    "test:report": "npx playwright show-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -10,5 +15,9 @@
   "devDependencies": {
     "@playwright/test": "^1.53.0",
     "@types/node": "^22.15.30"
+  },
+  "dependencies": {
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.3.1"
   }
 }
