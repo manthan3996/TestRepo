@@ -19,7 +19,7 @@ export default defineConfig({
   expect :{
     timeout:10000
   },
-reporter : 'html',
+reporter : ['html','line'],
   /* Configure projects for major browsers */
 screenshot : 'only-on-failure',
   projects: [
