@@ -1,6 +1,12 @@
 // @ts-chec
-import {chromium,defineConfig,devices} from '@playwright/test';
-import { config } from 'node:process';
+import {
+  chromium,
+  defineConfig,
+  devices
+} from '@playwright/test';
+import {
+  config
+} from 'node:process';
 
 /**
  * Read environment variables from file.
@@ -15,21 +21,21 @@ import { config } from 'node:process';
  */
 export default defineConfig({
   testDir: './tests',
-  timeout : 40000,
-  expect :{
-    timeout:10000
+  timeout: 40000,
+  expect: {
+    timeout: 10000
   },
-reporter : ['html','line'],
+  reporter: 'html',
   /* Configure projects for major browsers */
-screenshot : 'only-on-failure',
-  projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'],
-        headless:false
-       }
-    },
-  ],
+  screenshot: 'only-on-failure',
+  projects: [{
+    name: 'chromium',
+    use: {
+      baseURL: 'https://rahulshettyacademy.com',
+      ...devices['Desktop Chrome'],
+      headless: false
+    }
+  }, ],
 
   /* Run your local dev server before starting the tests */
   // webServer: {
