@@ -37,7 +37,7 @@ export default defineConfig({
     use: {
       baseURL: environment.BASE_URL,
       ...devices['Desktop Chrome'],
-      headless: false
+      headless: true,
     }
   }, ],
 
